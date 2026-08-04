@@ -1,0 +1,30 @@
+GUI 0019 web.tcl:125               Display option must have 2 elements {control name} {value}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.tcl#L125
+WEB 0001 web_serve.cpp:301         Server started on {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web_serve.cpp#L301
+WEB 0002 web_serve.cpp:305         Server error : {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web_serve.cpp#L305
+WEB 0006 web_serve.cpp:155         Web server is already running. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web_serve.cpp#L155
+WEB 0010 web.cpp:892               Failed to open acceptor: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L892
+WEB 0011 web.cpp:897               Failed to set reuse_address option: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L897
+WEB 0017 web.cpp:903               Failed to bind to endpoint: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L903
+WEB 0018 web.cpp:909               Failed to listen: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L909
+WEB 0020 tile_generator.cpp:2844   No design loaded. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/tile_generator.cpp#L2844
+WEB 0021 tile_generator.cpp:2876   Invalid image dimensions. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/tile_generator.cpp#L2876
+WEB 0022 tile_generator.cpp:2883   Image dimensions {}x{} exceed max {}; clamping. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/tile_generator.cpp#L2883
+WEB 0023 tile_generator.cpp:3000   PNG encode error: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/tile_generator.cpp#L3000
+WEB 0024 tile_generator.cpp:3005   Saved {}x{} image to {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/tile_generator.cpp#L3005
+WEB 0025 web.tcl:53                Resolution too high for design, defaulting to ${res_per_pixel}um per pixel WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.tcl#L53
+WEB 0026 web.tcl:61                Area must contain 4 elements. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.tcl#L61
+WEB 0027 web.tcl:68                Cannot set -width if -resolution has already been specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.tcl#L68
+WEB 0028 web.tcl:102               Display option must have 2 elements {control} {value}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.tcl#L102
+WEB 0029 web.tcl:73                Specified -width cannot be zero. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.tcl#L73
+WEB 0030 web.cpp:1085              No STA data — timing sections will be empty. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L1085
+WEB 0031 web.cpp:1064              Cannot open file: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L1064
+WEB 0032 web.cpp:1289              Saved timing report to {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L1289
+WEB 0033 web.cpp:1151              Cached {} tiles at zoom {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L1151
+WEB 0034 web.cpp:1175              Rendered {} setup + {} hold path overlays. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L1175
+WEB 0035 web.cpp:1058              No design loaded. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L1058
+WEB 0036 web_serve.cpp:372         Web server is not running. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web_serve.cpp#L372
+WEB 0037 web.tcl:23                -dir is deprecated and ignored; assets are embedded in the binary. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.tcl#L23
+WEB 0040 request_handler.cpp:2322  Exit requested from web GUI; shutting down. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/request_handler.cpp#L2322
+WEB 0041 web_serve.cpp:439         Web session closed. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web_serve.cpp#L439
+WEB 0042 web.cpp:1316              Ignoring malformed visibility JSON: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L1316
+WEB 0043 web.cpp:573               request id={} type={} failed: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/root/OpenROAD-with-3Dblox-master/src/web/src/web.cpp#L573

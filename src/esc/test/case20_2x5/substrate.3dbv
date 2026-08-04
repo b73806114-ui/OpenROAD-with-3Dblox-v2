@@ -1,0 +1,23 @@
+Header:
+  version: "1.0"
+  unit: "micron"
+  precision: 2000
+ChipletDef:
+  SubChiplet:
+    type: substrate
+    design_area: [3200, 1860]
+    thickness: 90.0
+    regions:
+      bond_region:
+        side: front
+        bmap: substrate_bumps.bmap
+        coords:
+          - [-300, -300]
+          - [3500, -300]
+          - [3500, 2160]
+          - [-300, 2160]
+    external:
+      APR_tech_file:
+        - ../../../../test/Nangate45/Nangate45_tech.lef
+      LEF_file:
+        - ../../../../test/Nangate45/fake_bumps.lef

@@ -1,0 +1,3 @@
+read_3dbx case10/top.3dbx
+esc -net_width 13 -min_spacing 13 -die_radius 45 -substrate_radius 45 -layer metal1
+puts [esc_report]
