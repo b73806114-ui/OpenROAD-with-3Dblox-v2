@@ -19,6 +19,8 @@ add_library(esc_core STATIC
   src/esc_src/create_subsolutions.cpp
   src/esc_src/dfs.cpp
   src/esc_src/escaper_operator.cpp
+  src/esc_src/baseline_dp.cpp
+  src/esc_src/crossing_net.cpp
   src/esc_src/output.cpp
   src/esc_src/route.cpp
 )

@@ -16,7 +16,19 @@
 
 extern double MIN_SPACING;
 extern double NET_WIDTH;
+struct NamedPoint
+{
+    std::string name;
+    double x;
+    double y;
+};
+
+// Construct the algorithm input structures from in-memory data.
+
 extern double BUMP_SIZE;
+
+enum class RoutingStyle { ANY_OBTUSE, DEG135 };
+extern RoutingStyle ROUTING_STYLE;
 
 using Point = std::pair<double, double>;
 
@@ -38,6 +50,17 @@ struct Net {
     Net(std::uint32_t id_in, const std::string& name_in)
         : id(id_in), _reserved(0), name(name_in) {}
 };
+
+void makeInput(const std::vector<NamedPoint>& die_pins,
+               const std::vector<NamedPoint>& substrate_pins,
+               const std::vector<std::pair<std::string, std::string>>& net_pairs,
+               double net_width,
+               double min_spacing,
+               double die_radius,
+               double substrate_radius,
+               std::vector<Bump>& die_bumps,
+               std::vector<Bump>& substrate_bumps,
+               std::vector<Net>& nets);
 
 struct Interval {
     const Bump* first;
@@ -154,6 +177,9 @@ public:
                              SuccessorTable& successors);
     void create_resource_table(std::vector<Bump>& die_bumps,
                                std::vector<Bump>& substrate_bumps);
+    void detect_crossing_nets(const std::vector<Bump>& die_bumps,
+                              const std::vector<Bump>& substrate_bumps);
+    void baseline_dp();
     void DFS(std::vector<Bump>& die_bumps,
              const std::string& die_direction_in,
              std::vector<Bump>& substrate_bumps,
@@ -183,6 +209,9 @@ public:
     std::uint8_t _reserved_101[7];
     Solution* best_solution;
     double best_critical_length;
+    double baseline_critical_length;
+    bool baseline_found;
+    std::vector<std::vector<std::uint32_t>> crossing_groups;
     std::vector<double> routed_lengths;
 };
 
@@ -191,24 +220,5 @@ void parse(std::ifstream& input,
            std::vector<Bump>& substrate_bumps,
            std::vector<Net>& nets);
 
-struct NamedPoint
-{
-    std::string name;
-    double x;
-    double y;
-};
-
-// Construct the algorithm input structures from in-memory data.
-// die_pins: (name, x, y) for each die-side bump
-// substrate_pins: (name, x, y) for each substrate-side bump
-// net_pairs: (die_pin_name, substrate_pin_name) linking die ↔ substrate
-void makeInput(const std::vector<NamedPoint>& die_pins,
-               const std::vector<NamedPoint>& substrate_pins,
-               const std::vector<std::pair<std::string, std::string>>& net_pairs,
-               double net_width,
-               double min_spacing,
-               double die_radius,
-               double substrate_radius,
-               std::vector<Bump>& die_bumps,
-               std::vector<Bump>& substrate_bumps,
-               std::vector<Net>& nets);
+// Equation 1: diagonal capacity of a routing tile (width × height).
+std::uint32_t diagonal_capacity(double width, double height, double pitch);
