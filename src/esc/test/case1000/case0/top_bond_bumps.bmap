@@ -1,0 +1,11 @@
+# Substrate top-side bond bumps. Each site is directly below the matching
+# die-side micro-bump; coordinates are local to SubChiplet. The pair directly
+# meets across the dbChipConn bond gap and is not joined by a drawn chip-net
+# segment in the web viewer.
+# Format: bumpInstName  bumpCellType  x  y  portName  netName
+
+bond_NET_A           BUMP         1980.0000    1640.0000 port_BOND_NET_A  NET_A
+bond_NET_B           BUMP         1660.0000    1480.0000 port_BOND_NET_B  NET_B
+bond_NET_C           BUMP         1820.0000    1480.0000 port_BOND_NET_C  NET_C
+bond_NET_D           BUMP         1980.0000    1480.0000 port_BOND_NET_D  NET_D
+bond_NET_E           BUMP         1980.0000    1320.0000 port_BOND_NET_E  NET_E

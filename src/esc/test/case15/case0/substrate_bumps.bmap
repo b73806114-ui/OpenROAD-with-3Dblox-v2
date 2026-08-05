@@ -1,0 +1,16 @@
+# Bottom-side package bump map – 8 bumps, cell type: BUMP
+# Format: bumpInstName  bumpCellType  x  y  portName  netName
+
+# Connected escape-routing targets sit in the substrate's east-side
+# perimeter band.  The ESC algorithm is a single-direction escape router.
+bump_NET_A           BUMP         3980.0000    1000.0000 port_PACKAGE_NET_A NET_A
+bump_NET_B           BUMP         3660.0000    1640.0000 port_PACKAGE_NET_B NET_B
+bump_NET_C           BUMP         3820.0000    1640.0000 port_PACKAGE_NET_C NET_C
+bump_NET_D           BUMP         3660.0000    1480.0000 port_PACKAGE_NET_D NET_D
+bump_NET_E           BUMP         3660.0000    1320.0000 port_PACKAGE_NET_E NET_E
+
+# Package bumps make the substrate's bottom-side bump population visible on
+# all four perimeter edges.  They are intentionally not die-connected nets.
+bump_PACKAGE_S        BUMP         2000.0000      20.0000 port_PACKAGE_S  PACKAGE_S
+bump_PACKAGE_N        BUMP         2000.0000    2980.0000 port_PACKAGE_N  PACKAGE_N
+bump_PACKAGE_W        BUMP           20.0000    1500.0000 port_PACKAGE_W  PACKAGE_W
