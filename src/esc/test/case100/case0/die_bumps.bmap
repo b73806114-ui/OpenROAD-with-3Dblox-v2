@@ -1,0 +1,8 @@
+# Bump map – 5 bumps, cell type: BUMP
+# Format: bumpInstName  bumpCellType  x  y  portName  netName
+
+bump_NET_A           BUMP          320.0000     480.0000 port_NET_A       NET_A
+bump_NET_B           BUMP            0.0000     320.0000 port_NET_B       NET_B
+bump_NET_C           BUMP          160.0000     320.0000 port_NET_C       NET_C
+bump_NET_D           BUMP          320.0000     320.0000 port_NET_D       NET_D
+bump_NET_E           BUMP          320.0000     160.0000 port_NET_E       NET_E
