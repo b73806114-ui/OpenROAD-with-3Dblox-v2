@@ -61,6 +61,8 @@ void Escaper::operator()(std::vector<Bump>& die_bumps,
             std::uint32_t index = 0U;
             auto successor_it = successor_lists.begin();
             for (Solution& solution : solutions) {
+                // The BFS stage uses standard monotonic route/successors.
+                // crossing nets are handled in baseline_dp only for now.
                 (void)route(solution);
 
                 if (assess(solution, index, solutions, true)) {

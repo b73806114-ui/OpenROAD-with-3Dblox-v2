@@ -11,16 +11,14 @@ Escaper::Escaper()
       dominated(false),
       best_solution(nullptr),
       best_critical_length(0.0),
-      routed_lengths()
-{
-}
+      baseline_critical_length(0.0),
+      baseline_found(false),
+      crossing_groups(),
+      routed_lengths() {}
 
-Escaper::~Escaper()
-{
-  Timer timer("~Escaper");
+Escaper::~Escaper() {
+    Timer timer("~Escaper");
 }
 
 void Escaper::trim(std::vector<Solution>&,
-                   std::vector<std::vector<std::uint16_t>>&)
-{
-}
+                   std::vector<std::vector<std::uint16_t>>&) {}

@@ -1,0 +1,46 @@
+module DieChiplet (input port_NET_0, input port_NET_1, input port_NET_2, input port_NET_3, input port_NET_4, input port_NET_5, input port_NET_6, input port_NET_7, input port_NET_8, input port_NET_9, input port_NET_10, input port_NET_11, input port_NET_12, input port_NET_13, input port_NET_14, input port_NET_15, input port_NET_16, input port_NET_17, input port_NET_18, input port_NET_19, input port_NET_20, input port_NET_21, input port_NET_22, input port_NET_23, input port_NET_24, input port_NET_25, input port_NET_26, input port_NET_27, input port_NET_28, input port_NET_29, input port_NET_30, input port_NET_31, input port_NET_32, input port_NET_33, input port_NET_34, input port_NET_35, input port_NET_36, input port_NET_37, input port_NET_38, input port_NET_39); endmodule
+module SubChiplet (input port_NET_0, input port_NET_1, input port_NET_2, input port_NET_3, input port_NET_4, input port_NET_5, input port_NET_6, input port_NET_7, input port_NET_8, input port_NET_9, input port_NET_10, input port_NET_11, input port_NET_12, input port_NET_13, input port_NET_14, input port_NET_15, input port_NET_16, input port_NET_17, input port_NET_18, input port_NET_19, input port_NET_20, input port_NET_21, input port_NET_22, input port_NET_23, input port_NET_24, input port_NET_25, input port_NET_26, input port_NET_27, input port_NET_28, input port_NET_29, input port_NET_30, input port_NET_31, input port_NET_32, input port_NET_33, input port_NET_34, input port_NET_35, input port_NET_36, input port_NET_37, input port_NET_38, input port_NET_39); endmodule
+module EscapeRouting_40 ();
+  wire NET_0;
+  wire NET_1;
+  wire NET_2;
+  wire NET_3;
+  wire NET_4;
+  wire NET_5;
+  wire NET_6;
+  wire NET_7;
+  wire NET_8;
+  wire NET_9;
+  wire NET_10;
+  wire NET_11;
+  wire NET_12;
+  wire NET_13;
+  wire NET_14;
+  wire NET_15;
+  wire NET_16;
+  wire NET_17;
+  wire NET_18;
+  wire NET_19;
+  wire NET_20;
+  wire NET_21;
+  wire NET_22;
+  wire NET_23;
+  wire NET_24;
+  wire NET_25;
+  wire NET_26;
+  wire NET_27;
+  wire NET_28;
+  wire NET_29;
+  wire NET_30;
+  wire NET_31;
+  wire NET_32;
+  wire NET_33;
+  wire NET_34;
+  wire NET_35;
+  wire NET_36;
+  wire NET_37;
+  wire NET_38;
+  wire NET_39;
+  DieChiplet die_inst (.port_NET_0(NET_0), .port_NET_1(NET_1), .port_NET_2(NET_2), .port_NET_3(NET_3), .port_NET_4(NET_4), .port_NET_5(NET_5), .port_NET_6(NET_6), .port_NET_7(NET_7), .port_NET_8(NET_8), .port_NET_9(NET_9), .port_NET_10(NET_10), .port_NET_11(NET_11), .port_NET_12(NET_12), .port_NET_13(NET_13), .port_NET_14(NET_14), .port_NET_15(NET_15), .port_NET_16(NET_16), .port_NET_17(NET_17), .port_NET_18(NET_18), .port_NET_19(NET_19), .port_NET_20(NET_20), .port_NET_21(NET_21), .port_NET_22(NET_22), .port_NET_23(NET_23), .port_NET_24(NET_24), .port_NET_25(NET_25), .port_NET_26(NET_26), .port_NET_27(NET_27), .port_NET_28(NET_28), .port_NET_29(NET_29), .port_NET_30(NET_30), .port_NET_31(NET_31), .port_NET_32(NET_32), .port_NET_33(NET_33), .port_NET_34(NET_34), .port_NET_35(NET_35), .port_NET_36(NET_36), .port_NET_37(NET_37), .port_NET_38(NET_38), .port_NET_39(NET_39));
+  SubChiplet substrate_inst (.port_NET_0(NET_0), .port_NET_1(NET_1), .port_NET_2(NET_2), .port_NET_3(NET_3), .port_NET_4(NET_4), .port_NET_5(NET_5), .port_NET_6(NET_6), .port_NET_7(NET_7), .port_NET_8(NET_8), .port_NET_9(NET_9), .port_NET_10(NET_10), .port_NET_11(NET_11), .port_NET_12(NET_12), .port_NET_13(NET_13), .port_NET_14(NET_14), .port_NET_15(NET_15), .port_NET_16(NET_16), .port_NET_17(NET_17), .port_NET_18(NET_18), .port_NET_19(NET_19), .port_NET_20(NET_20), .port_NET_21(NET_21), .port_NET_22(NET_22), .port_NET_23(NET_23), .port_NET_24(NET_24), .port_NET_25(NET_25), .port_NET_26(NET_26), .port_NET_27(NET_27), .port_NET_28(NET_28), .port_NET_29(NET_29), .port_NET_30(NET_30), .port_NET_31(NET_31), .port_NET_32(NET_32), .port_NET_33(NET_33), .port_NET_34(NET_34), .port_NET_35(NET_35), .port_NET_36(NET_36), .port_NET_37(NET_37), .port_NET_38(NET_38), .port_NET_39(NET_39));
+endmodule

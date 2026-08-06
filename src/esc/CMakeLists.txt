@@ -23,6 +23,7 @@ add_library(esc_core STATIC
   src/esc_src/crossing_net.cpp
   src/esc_src/output.cpp
   src/esc_src/route.cpp
+  src/esc_src/route_crossing.cpp
 )
 
 target_compile_features(esc_core PUBLIC cxx_std_20)

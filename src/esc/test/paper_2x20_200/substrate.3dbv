@@ -1,0 +1,39 @@
+Header:
+  version: "1.0"
+  unit: "micron"
+  precision: 2000
+ChipletDef:
+  SubChiplet:
+    type: substrate
+    design_area: [6720, 16160]
+    thickness: 90.0
+    regions:
+      top_bond_bump_region:
+        side: front
+        bmap: top_bond_bumps.bmap
+        coords:
+          - [0.0, 0.0]
+          - [6720, 0.0]
+          - [6720, 16160]
+          - [0.0, 16160]
+      top_rdl_pad_region:
+        side: front
+        bmap: top_rdl_pads.bmap
+        coords:
+          - [0.0, 0.0]
+          - [6720, 0.0]
+          - [6720, 16160]
+          - [0.0, 16160]
+      rdl_bump_region:
+        side: back
+        bmap: substrate_bumps.bmap
+        coords:
+          - [0.0, 0.0]
+          - [6720, 0.0]
+          - [6720, 16160]
+          - [0.0, 16160]
+    external:
+      APR_tech_file:
+        - ../../../../test/Nangate45/Nangate45_tech.lef
+      LEF_file:
+        - ../../../../test/Nangate45/fake_bumps.lef

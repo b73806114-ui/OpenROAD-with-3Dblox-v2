@@ -34,7 +34,11 @@ void Escaper::baseline_dp() {
 
             // Route and evaluate each solution.
             for (Solution& solution : solutions) {
-                (void)route(solution);
+                if (crossing_groups.empty()) {
+                    (void)route(solution);
+                } else {
+                    (void)route_crossing(solution);
+                }
             }
 
             // Line 12-13: Keep only δ* with minimum wc (break ties with wt).
@@ -54,7 +58,11 @@ void Escaper::baseline_dp() {
 
             // Line 14: Find Nδ* — feasible next nets.
             std::vector<std::uint16_t> feasible;
-            find_successors(best_copy.contour, feasible);
+            if (crossing_groups.empty()) {
+                find_successors(best_copy.contour, feasible);
+            } else {
+                find_successors_crossing(best_copy.contour, feasible);
+            }
 
             // Lines 15-21: Create new solutions for the next level.
             for (const std::uint16_t next_net : feasible) {
@@ -93,7 +101,11 @@ void Escaper::baseline_dp() {
 
     // Route all complete solutions and pick the best.
     for (Solution& solution : it->second) {
-        (void)route(solution);
+        if (crossing_groups.empty()) {
+            (void)route(solution);
+        } else {
+            (void)route_crossing(solution);
+        }
     }
 
     Solution* best = &it->second.front();

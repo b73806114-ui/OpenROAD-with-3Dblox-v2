@@ -16,15 +16,6 @@
 
 extern double MIN_SPACING;
 extern double NET_WIDTH;
-struct NamedPoint
-{
-    std::string name;
-    double x;
-    double y;
-};
-
-// Construct the algorithm input structures from in-memory data.
-
 extern double BUMP_SIZE;
 
 enum class RoutingStyle { ANY_OBTUSE, DEG135 };
@@ -51,17 +42,15 @@ struct Net {
         : id(id_in), _reserved(0), name(name_in) {}
 };
 
+struct NamedPoint { std::string name; double x; double y; };
 void makeInput(const std::vector<NamedPoint>& die_pins,
                const std::vector<NamedPoint>& substrate_pins,
                const std::vector<std::pair<std::string, std::string>>& net_pairs,
-               double net_width,
-               double min_spacing,
-               double die_radius,
-               double substrate_radius,
+               double net_width, double min_spacing,
+               double die_radius, double substrate_radius,
                std::vector<Bump>& die_bumps,
                std::vector<Bump>& substrate_bumps,
                std::vector<Net>& nets);
-
 struct Interval {
     const Bump* first;
     const Bump* second;
@@ -180,6 +169,10 @@ public:
     void detect_crossing_nets(const std::vector<Bump>& die_bumps,
                               const std::vector<Bump>& substrate_bumps);
     void baseline_dp();
+    bool is_net_crossing(std::uint32_t net_id) const;
+    std::vector<Point> route_crossing(Solution& solution);
+    void find_successors_crossing(const std::vector<ContourItem>& contour,
+                                  std::vector<std::uint16_t>& successors);
     void DFS(std::vector<Bump>& die_bumps,
              const std::string& die_direction_in,
              std::vector<Bump>& substrate_bumps,

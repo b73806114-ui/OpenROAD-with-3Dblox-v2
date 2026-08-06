@@ -1,39 +1,39 @@
-#include <cstdint>
-
 #include "try_routing.hpp"
 
-void Escaper::backtrack()
-{
-  Timer timer("backtrack");
+#include <cstdint>
 
-  optimal_order.clear();
+void Escaper::backtrack() {
+    Timer timer("backtrack");
 
-  std::vector<Solution>& complete_solutions = solution_table.begin()->second;
-  best_solution = complete_solutions.data();
-  if (best_solution == nullptr) {
-    return;
-  }
+    optimal_order.clear();
 
-  double selected_critical = best_solution->critical_length;
-  for (Solution& candidate : complete_solutions) {
-    if (candidate.critical_length < selected_critical
-        || (candidate.critical_length == selected_critical
-            && candidate.total_length < best_solution->total_length)) {
-      best_solution = &candidate;
-      selected_critical = candidate.critical_length;
+    std::vector<Solution>& complete_solutions =
+        solution_table.begin()->second;
+    best_solution = complete_solutions.data();
+    if (best_solution == nullptr) {
+        return;
     }
-  }
-  best_critical_length = selected_critical;
 
-  optimal_order.reserve(net_count);
-  for (const std::uint16_t net : best_solution->order) {
-    optimal_order.emplace_back(static_cast<std::uint32_t>(net));
-  }
+    double selected_critical = best_solution->critical_length;
+    for (Solution& candidate : complete_solutions) {
+        if (candidate.critical_length < selected_critical ||
+            (candidate.critical_length == selected_critical &&
+             candidate.total_length < best_solution->total_length)) {
+            best_solution = &candidate;
+            selected_critical = candidate.critical_length;
+        }
+    }
+    best_critical_length = selected_critical;
 
-  routed_lengths.resize(net_count);
+    optimal_order.reserve(net_count);
+    for (const std::uint16_t net : best_solution->order) {
+        optimal_order.emplace_back(static_cast<std::uint32_t>(net));
+    }
 
-  // Initialise routing state with an empty solution before the main pass.
-  Solution initial{};
-  initial.contour.resize(resource_table.size());
-  (void) route(initial);
+    routed_lengths.resize(net_count);
+
+    // Initialise routing state with an empty solution before the main pass.
+    Solution initial{};
+    initial.contour.resize(resource_table.size());
+    (void)route(initial);
 }

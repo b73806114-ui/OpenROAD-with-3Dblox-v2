@@ -17,22 +17,31 @@ std::vector<std::uint16_t> normalized_profile(
     }
 
     const auto available_at = [&](std::uint32_t column) {
+        if (column >= solution.contour.size()) {
+            return std::uint16_t(0U);
+        }
         const ContourItem& item = solution.contour[column];
+        if (item.interval_index >= escaper.resource_table[column].size()) {
+            return std::uint16_t(0U);
+        }
         const Interval& interval =
             escaper.resource_table[column][item.interval_index];
-        return interval.capacity - item.point_index;
+        const std::uint32_t cap = interval.capacity;
+        const std::uint32_t used = item.point_index;
+        return static_cast<std::uint16_t>(
+            used >= cap ? 0U : cap - used);
     };
 
     std::uint16_t suffix_min =
         static_cast<std::uint16_t>(available_at(column_count - 1U));
     for (std::uint32_t column = column_count; column != 0U;) {
         --column;
-        const std::uint32_t available = available_at(column);
+        const std::uint16_t available = available_at(column);
         if (suffix_min <= available) {
             profile[column] = suffix_min;
         } else {
-            profile[column] = static_cast<std::uint16_t>(available);
-            suffix_min = static_cast<std::uint16_t>(available);
+            profile[column] = available;
+            suffix_min = available;
         }
     }
 
@@ -56,10 +65,6 @@ bool elementwise_less_equal(const std::vector<std::uint16_t>& lhs,
 
 }  // namespace
 
-// Pareto dominance over critical length, total length, and optionally a
-// normalized residual-capacity contour. Returns true when the existing solution
-// dominates the candidate. When the reverse dominance holds, invalidates the
-// existing solution in place with a 1e100 sentinel.
 bool Escaper::compare(const Solution& candidate, Solution& incumbent,
                       bool compare_contours) {
     Timer timer("compare");
@@ -76,7 +81,6 @@ bool Escaper::compare(const Solution& candidate, Solution& incumbent,
         !compare_contours ||
         elementwise_less_equal(incumbent_profile, candidate_profile);
 
-    // Equal solutions retain the incumbent rather than invalidating it.
     if (candidate.critical_length >= incumbent.critical_length &&
         candidate.total_length >= incumbent.total_length &&
         incumbent_contour_no_worse) {
@@ -87,7 +91,8 @@ bool Escaper::compare(const Solution& candidate, Solution& incumbent,
         candidate.total_length <= incumbent.total_length &&
         candidate_contour_no_worse) {
         incumbent.critical_length = 1.0e100;
-        incumbent.last_net = static_cast<std::uint16_t>(net_count + 1U);
+        incumbent.last_net =
+            static_cast<std::uint16_t>(net_count + 1U);
         incumbent.contour.clear();
         incumbent.order.clear();
     }
